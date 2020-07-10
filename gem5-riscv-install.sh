@@ -20,7 +20,7 @@ sudo apt install -y automake
 echo -e "Cloning gem5 repository and building a RISC-V optimized binary..."
 git clone https://gem5.googlesource.com/public/gem5
 cd ./gem5
-scons build/RISCV/gem5.opt -j$cpu_count
+scons build/RISCV/gem5.opt --ignore-style -j$cpu_count
 
 cd $actual_dir
 echo -e "Done!"
