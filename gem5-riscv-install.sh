@@ -1,6 +1,6 @@
 #!/bin/bash
 
-script_id="gem5install"
+script_id="gem5-riscv-install"
 gem5_repository="https://gem5.googlesource.com/public/gem5"
 actual_dir=$(pwd)
 
