@@ -18,8 +18,12 @@ sudo apt-fast install -y build-essential git
 mkdir $lqs_tempinstalldir
 cd $lqs_tempinstalldir
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i chrome.deb
+sudo apt install -y -f
+
 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
-sudo dpkg -i *.deb
+sudo dpkg -i code.deb
+sudo apt install -y -f
 cd $tmp_localdir
 rm -Rf $lqs_tempinstalldir
 
