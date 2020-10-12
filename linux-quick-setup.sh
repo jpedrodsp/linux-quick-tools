@@ -39,4 +39,9 @@ sudo rm -rf apt-fast
 sudo apt-fast install -y python3 python3-pip ffmpeg
 sudo pip3 install youtube-dl
 
+# Install CMake
+sudo apt-fast install -y cmake
+# Install qBittorrent
+sudo apt-fast install -y qbittorrent
+
 echo "Done! Please reboot."
