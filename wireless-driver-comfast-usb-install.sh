@@ -1,6 +1,6 @@
 #!/bin/bash
 
-script_id="ac600-setup"
+script_id="comfastwifi-setup"
 
 # Install needed package
 sudo apt update -y
