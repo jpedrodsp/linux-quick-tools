@@ -13,9 +13,9 @@ echo -e "Setting up temporary directory: $temporary_directory"
 mkdir $temporary_directory
 
 # Write install code here
-echo -e "Downloading TP-Link AC600 driver [2357:011e] ..."
+echo -e "Downloading COMFAST Wi-Fi Adapter driver [0bda:c811] ..."
 git clone https://github.com/brektrou/rtl8821CU.git $temporary_directory/comfastdriver
-echo -e "Installing TP-Link AC600 driver [2357:011e] ..."
+echo -e "Installing COMFAST Wi-Fi Adapter driver [0bda:c811] ..."
 cd $temporary_directory/comfastdriver
 sudo ./dkms-install.sh
 cd $previous_dir
