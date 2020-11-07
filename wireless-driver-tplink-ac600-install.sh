@@ -17,7 +17,7 @@ echo -e "Downloading TP-Link AC600 driver [2357:011e] ..."
 git clone https://github.com/aircrack-ng/rtl8812au.git $temporary_directory/ac600driver
 echo -e "Installing TP-Link AC600 driver [2357:011e] ..."
 cd $temporary_directory/ac600driver
-sudo ./dkms-install.sh
+sudo make dkms_install
 cd $previous_dir
 
 # Remove temporary directory
