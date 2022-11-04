@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check if "apt-fast" is installed as preferred package manager. If it is, use it as APT_COMMAND.
+if [ -x "$(command -v apt-fast)" ]; then
+    APT_COMMAND="apt-fast"
+else
+    APT_COMMAND="apt-get"
+fi
+
 script_id="gem5-riscv-install"
 gem5_repository="https://gem5.googlesource.com/public/gem5"
 actual_dir=$(pwd)
@@ -8,14 +15,8 @@ echo -e "Got CPU count: $cpu_count"
 
 # Write install code here
 echo -e "Installing pre-requisites..."
-sudo apt install -y build-essential git m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev python-dev python
-sudo apt install -y git
-sudo apt install -y build-essential
-sudo apt install -y scons
-sudo apt install -y python-dev
-sudo apt install -y libprotobuf-dev python-protobuf protobuf-compiler libgoogle-perftools-dev
-sudo apt install -y libboost-all-dev
-sudo apt install -y automake
+sudo $APT_COMMAND install -y build-essential git m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev python-dev python
+sudo $APT_COMMAND install -y git build-essential scons python-dev libprotobuf-dev python-protobuf protobuf-compiler libgoogle-perftools-dev libboost-all-dev automake
 
 echo -e "Cloning gem5 repository and building a RISC-V optimized binary..."
 git clone https://gem5.googlesource.com/public/gem5

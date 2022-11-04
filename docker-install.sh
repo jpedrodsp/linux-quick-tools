@@ -1,8 +1,11 @@
 #!/bin/bash
 
-APT_COMMAND="apt"
-
-sudo $APT_COMMAND -y update
+# Check if "apt-fast" is installed as preferred package manager. If it is, use it as APT_COMMAND.
+if [ -x "$(command -v apt-fast)" ]; then
+    APT_COMMAND="apt-fast"
+else
+    APT_COMMAND="apt-get"
+fi
 
 sudo $APT_COMMAND -y install \
     apt-transport-https \
