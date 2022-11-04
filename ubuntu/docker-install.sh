@@ -38,3 +38,13 @@ echo \
 make_title "Installing Docker Engine..."
 sudo $APT_COMMAND -y update
 sudo $APT_COMMAND -y install docker-ce docker-ce-cli containerd.io
+
+# Add current user to docker group
+make_title "Adding current user to docker group..."
+sudo usermod -aG docker $USER
+
+# Install Docker Compose
+make_title "Installing Docker Compose..."
+sudo $APT_COMMAND -y install docker-compose
+
+echo -e "Done!"
