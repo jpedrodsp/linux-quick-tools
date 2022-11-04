@@ -1,7 +1,10 @@
 #!/bin/bash
 
-lqs_tempinstalldir=".aptfast-setup"
+# Create temporary directory
 tmp_localdir=$(pwd)
+lqs_tempinstalldir=".aptfast-setup"
+mkdir $lqs_tempinstalldir
+cd $lqs_tempinstalldir
 
 # Install apt-fast
 sudo apt update -y
@@ -16,6 +19,9 @@ sudo apt install -y bash-completion
 sudo cp apt-fast/completions/bash/apt-fast /etc/bash_completion.d/
 sudo chown root:root /etc/bash_completion.d/apt-fast
 . /etc/bash_completion
-sudo rm -rf apt-fast
+
+# Remove temporary directory
+cd $tmp_localdir
+rm -rf $lqs_tempinstalldir
 
 echo "Done!"
