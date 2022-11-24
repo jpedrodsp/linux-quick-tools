@@ -21,40 +21,85 @@ fi
 LQS_TEMPSINSTALLDIR=".lqs_installtemp"
 TMP_LOCALDIR=$(pwd)
 
-# Install updates
+
+#
+# Upgrade system
+#
 make_title "Installing updates..."
+# Upgrade system packages using apt
 sudo $APT_COMMAND dist-upgrade -y
 
+
+#
 # Install build-essentials and Git
+#
 make_title "Installing build-essentials and Git..."
+#  Install build-essential, git, git-lfs and vim packages using apt
 sudo $APT_COMMAND install -y build-essential git git-lfs vim
 
-# Install Chrome
+
+#
+# Google Chrome
+#
+
 make_title "Installing Chrome..."
+# Enter temporary directory
 mkdir $LQS_TEMPSINSTALLDIR
 cd $LQS_TEMPSINSTALLDIR
+# Install Chrome
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i chrome.deb
 sudo apt install -y -f
-
-# Install Visual Studio Code
-make_title "Installing Visual Studio Code..."
-wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
-sudo dpkg -i code.deb
-sudo apt install -y -f
+# Remove temporary files
 cd $TMP_LOCALDIR
 rm -Rf $LQS_TEMPSINSTALLDIR
 
-# Install Youtube-Dl (via pip3) + FFMPEG
+
+#
+# Visual Studio Code
+#
+
+make_title "Installing Visual Studio Code..."
+# Enter temporary directory
+mkdir $LQS_TEMPSINSTALLDIR
+cd $LQS_TEMPSINSTALLDIR
+# Download Visual Studio Code .deb binary
+wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
+# Install Visual Studio Code .deb binary using dpkg
+sudo dpkg -i code.deb
+# Fix missing dependencies using apt --fix-broken flag
+sudo apt install -y -f
+# Remove temporary files
+cd $TMP_LOCALDIR
+rm -Rf $LQS_TEMPSINSTALLDIR
+
+
+#
+# youtube-dl + ffmpeg
+#
+
 make_title "Installing Youtube-Dl (via pip3) + FFMPEG..."
+# Install python3 and ffmpeg packages using apt
 sudo $APT_COMMAND install -y python3 python3-pip ffmpeg
+# Install youtube-dl via pip
 sudo pip3 install youtube-dl
 
-# Install CMake
+
+#
+# CMake
+#
+
 make_title "Installing CMake..."
+# Install cmake packages using apt
 sudo $APT_COMMAND install -y cmake
-# Install qBittorrent
+
+
+#
+# qBittorrent
+#
+
 make_title "Installing qBittorrent..."
+# Install qBittorrent packages using apt
 sudo $APT_COMMAND install -y qbittorrent
 
 echo "Done! Please reboot."
