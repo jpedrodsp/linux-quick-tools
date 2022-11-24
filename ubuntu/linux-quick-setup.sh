@@ -27,7 +27,7 @@ sudo $APT_COMMAND dist-upgrade -y
 
 # Install build-essentials and Git
 make_title "Installing build-essentials and Git..."
-sudo $APT_COMMAND install -y build-essential git
+sudo $APT_COMMAND install -y build-essential git git-lfs
 
 # Install Chrome
 make_title "Installing Chrome..."
