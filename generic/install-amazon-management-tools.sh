@@ -14,10 +14,10 @@ sudo ./aws/install
 rm awscliv2.zip
 rm -rf ./aws/
 
+
 #
 # kubectl
 #
-
 
 # Download kubectl binary and its checksum file
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -36,8 +36,9 @@ rm kubectl.sha256
 # eksctl
 #
 
-# I
+# Download eksctl and extract it to /tmp folder
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+# Move extracted eksctl binary to /usr/local/bin
 sudo mv /tmp/eksctl /usr/local/bin
 
 
