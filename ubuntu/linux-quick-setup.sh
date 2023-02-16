@@ -80,7 +80,7 @@ rm -Rf $LQS_TEMPSINSTALLDIR
 
 make_title "Installing yt-dlp (via pip3) + FFMPEG..."
 # Install python3 and ffmpeg packages using apt
-sudo $APT_COMMAND install -y python3 python3-pip ffmpeg
+sudo $APT_COMMAND install -y python3 python3-pip python3-venv ffmpeg
 # Install yt-dlp via pip
 sudo pip3 install yt-dlp
 
