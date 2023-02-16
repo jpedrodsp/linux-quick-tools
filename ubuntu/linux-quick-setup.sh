@@ -109,4 +109,11 @@ make_title "Installing xclip..."
 # Install xclip package using apt
 sudo $APT_COMMAND install -y xclip
 
+#
+# gnome-keyring
+#
+make_title "Installing gnome-keyring..."
+# Install gnome-keyring package using apt
+sudo $APT_COMMAND install -y gnome-keyring
+
 echo "Done! Please reboot."
