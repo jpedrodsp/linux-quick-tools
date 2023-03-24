@@ -1,8 +1,9 @@
 #!/bin/bash
 
-QUARTUS_DOWNLOAD_URL="https://downloads.intel.com/akdlm/software/acdsinst/22.1std.1/917/ib_tar/Quartus-lite-22.1std.1.917-linux.tar"
+QUARTUS_DOWNLOAD_URL="https://downloads.intel.com/akdlm/software/acdsinst/21.1std/842/ib_tar/Quartus-lite-21.1.0.842-linux.tar"
 QUARTUS_DOWNLOAD_FILE="quartus.tar"
 QUARTUS_EXTRACT_FOLDER="quartus"
+QUARTUS_INSTALL_DIR="$(realpath ~/intelFPGA_lite/21.1)"
 
 # Download Quartus
 download_quartus() {
@@ -38,7 +39,7 @@ extract_quartus
 run_quartus_installer() {
     echo "Running Quartus installer..."
     QUARTUS_INSTALL_FLAGS_UNNATENDEDMODE="--mode unattended --unattendedmodeui none"
-    QUARTUS_INSTALL_FLAGS_INSTALLDIR="--installdir /home/jpedro/intelFPGA_lite/22.1std"
+    QUARTUS_INSTALL_FLAGS_INSTALLDIR="--installdir $QUARTUS_INSTALL_DIR"
     QUARTUS_INSTALL_FLAGS_ACCEPTEULA="--accept_eula 1"
     QUARTUS_INSTALL_FLAGS="$QUARTUS_INSTALL_FLAGS_UNNATENDEDMODE $QUARTUS_INSTALL_FLAGS_INSTALLDIR $QUARTUS_INSTALL_FLAGS_ACCEPTEULA"
     $QUARTUS_EXTRACT_FOLDER/setup.sh $QUARTUS_INSTALL_FLAGS
@@ -52,8 +53,8 @@ create_quartus_shortcut() {
     QUARTUS_SHORTCUT_CONTENTS="[Desktop Entry]
 Name=Quartus
 Comment=Quartus
-Exec=/home/jpedro/intelFPGA_lite/22.1std/quartus/bin/quartus
-Icon=/home/jpedro/intelFPGA_lite/22.1std/quartus/bin/quartus.ico
+Exec=$QUARTUS_INSTALL_DIR/quartus/bin/quartus
+Icon=$QUARTUS_INSTALL_DIR/quartus/adm/quartusii.png
 Terminal=false
 Type=Application
 Categories=Development;IDE;"
