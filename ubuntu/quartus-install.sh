@@ -1,9 +1,9 @@
 #!/bin/bash
 
-QUARTUS_DOWNLOAD_URL="https://downloads.intel.com/akdlm/software/acdsinst/21.1std/842/ib_tar/Quartus-lite-21.1.0.842-linux.tar"
+QUARTUS_DOWNLOAD_URL="https://downloads.intel.com/akdlm/software/acdsinst/20.1std.1/720/ib_tar/Quartus-lite-20.1.1.720-linux.tar"
 QUARTUS_DOWNLOAD_FILE="quartus.tar"
 QUARTUS_EXTRACT_FOLDER="quartus"
-QUARTUS_INSTALL_DIR="$(realpath ~/intelFPGA_lite/21.1)"
+QUARTUS_INSTALL_DIR="$(realpath ~/intelFPGA_lite/20.1)"
 
 # Download Quartus
 download_quartus() {
