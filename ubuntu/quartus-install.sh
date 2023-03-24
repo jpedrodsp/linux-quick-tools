@@ -11,10 +11,10 @@ download_quartus() {
     if ! command -v aria2c &> /dev/null
     then
         echo "aria2c could not be found. Using wget instead to download Quartus."
-        wget -O $QUARTUS_DOWNLOAD_FILE $QUARTUS_DOWNLOAD_URL
+        wget -O "$QUARTUS_DOWNLOAD_FILE" "$QUARTUS_DOWNLOAD_URL"
     else
         echo "aria2c found. Using aria2c to download Quartus."
-        aria2c -s16 -x16 $QUARTUS_DOWNLOAD_URL -o $QUARTUS_DOWNLOAD_FILE
+        aria2c -s16 -x16 "$QUARTUS_DOWNLOAD_URL" -o "$QUARTUS_DOWNLOAD_FILE"
     fi
 }
 if [ ! -f $QUARTUS_DOWNLOAD_FILE ]; then
@@ -44,6 +44,22 @@ run_quartus_installer() {
     $QUARTUS_EXTRACT_FOLDER/setup.sh $QUARTUS_INSTALL_FLAGS
 }
 run_quartus_installer
+
+# Create shortcut for Quartus
+create_quartus_shortcut() {
+    echo "Creating Quartus shortcut..."
+    QUARTUS_SHORTCUT_PATH="/usr/share/applications/quartus.desktop"
+    QUARTUS_SHORTCUT_CONTENTS="[Desktop Entry]
+Name=Quartus
+Comment=Quartus
+Exec=/home/jpedro/intelFPGA_lite/22.1std/quartus/bin/quartus
+Icon=/home/jpedro/intelFPGA_lite/22.1std/quartus/bin/quartus.ico
+Terminal=false
+Type=Application
+Categories=Development;IDE;"
+    echo "$QUARTUS_SHORTCUT_CONTENTS" > $QUARTUS_SHORTCUT_PATH
+}
+create_quartus_shortcut
 
 # Perform file cleanup
 file_cleanup() {
