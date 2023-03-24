@@ -70,4 +70,4 @@ file_cleanup() {
     echo "Deleting Quartus extracted folder..."
     rm -rf $QUARTUS_EXTRACT_FOLDER
 }
-# file_cleanup
+file_cleanup
