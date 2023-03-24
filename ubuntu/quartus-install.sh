@@ -37,7 +37,7 @@ extract_quartus
 # Run Quartus installer
 run_quartus_installer() {
     echo "Running Quartus installer..."
-    QUARTUS_INSTALL_FLAGS_UNNATENDEDMODE="--unattendedmodeui none"
+    QUARTUS_INSTALL_FLAGS_UNNATENDEDMODE="--mode unattended --unattendedmodeui none"
     QUARTUS_INSTALL_FLAGS_INSTALLDIR="--installdir /home/jpedro/intelFPGA_lite/22.1std"
     QUARTUS_INSTALL_FLAGS_ACCEPTEULA="--accept_eula 1"
     QUARTUS_INSTALL_FLAGS="$QUARTUS_INSTALL_FLAGS_UNNATENDEDMODE $QUARTUS_INSTALL_FLAGS_INSTALLDIR $QUARTUS_INSTALL_FLAGS_ACCEPTEULA"
@@ -70,4 +70,4 @@ file_cleanup() {
     echo "Deleting Quartus extracted folder..."
     rm -rf $QUARTUS_EXTRACT_FOLDER
 }
-file_cleanup
+# file_cleanup
