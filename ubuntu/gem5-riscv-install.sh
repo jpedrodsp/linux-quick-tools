@@ -29,7 +29,7 @@ echo -e "Got CPU count: $cpu_count"
 
 # Install pre-requisites
 make_title "Installing pre-requisites..."
-sudo $APT_COMMAND install -y build-essential git m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev python-dev python python-dev libboost-all-dev automake
+sudo $APT_COMMAND install -y build-essential git m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev python-dev python3 python3-dev python3-venv libboost-all-dev automake
 
 make_title "Cloning gem5 repository and building a RISC-V optimized binary..."
 git clone https://gem5.googlesource.com/public/gem5
