@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Installing dependencies..."
+sudo apt update -y
+sudo apt install -y build-essential cmake
+
 echo "Cloning SystemC Repository..."
 SYSTEMC_REPO_URL="https://github.com/accellera-official/systemc.git"
 SYSTEMC_REPO_TAGVER="2.3.4"
