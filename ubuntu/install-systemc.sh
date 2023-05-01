@@ -20,7 +20,7 @@ echo "Building and installing..."
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$SYSTEMC_INSTALLDIR ..
 make -j`nproc`
 make check -j`nproc`
-make install
+sudo make install
 
 echo "Cleaning installation..."
 cd ..
