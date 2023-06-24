@@ -1,7 +1,13 @@
 #!/bin/bash
 
-USERNAME=user
+if [ -z $1 ];
+then
+    echo "Missing user (\$1) parameter"
+    exit 1
+fi
+USERNAME=$1
 USERDIR=$(realpath /home/$USERNAME)
+echo "Using '$USERDIR' as target dir"
 
 # Install dependencies: git, ZSH and cURL
 sudo apt update -y
