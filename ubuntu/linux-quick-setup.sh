@@ -12,8 +12,8 @@ make_title() {
 }
 
 # Check if "$APT_COMMAND" is installed as preferred package manager. If it is, use it as APT_COMMAND.
-if [ -x "$(command -v $APT_COMMAND)" ]; then
-    APT_COMMAND="$APT_COMMAND"
+if [ -x "$(command -v apt-fast)" ]; then
+    APT_COMMAND="apt-fast"
 else
     APT_COMMAND="apt-get"
 fi
@@ -69,6 +69,20 @@ wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
 sudo dpkg -i code.deb
 # Fix missing dependencies using apt --fix-broken flag
 sudo apt install -y -f
+# Install vscode extensions
+code --install-extension tomoki1207.pdf
+code --install-extension yzane.markdown-pdf
+code --install-extension ms-vscode.cmake-tools
+code --install-extension ms-python.python
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension eamodio.gitlens
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode.cpptools
+
 # Remove temporary files
 cd $TMP_LOCALDIR
 rm -Rf $LQS_TEMPSINSTALLDIR
