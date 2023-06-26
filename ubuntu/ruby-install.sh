@@ -45,7 +45,7 @@ RUBY_APT_DEPS="libyaml-dev libssl-dev"
 asdf plugin add $RUBY_ASDF_NAME
 sudo $APT_COMMAND update -y
 sudo $APT_COMMAND install -y $RUBY_APT_DEPS
-asdf install ruby $RUBY_ASDF_VERSION
+asdf install $RUBY_ASDF_NAME $RUBY_ASDF_VERSION
 
 #
 # Stage 3: Install asdf postgres plugin and dependencies
@@ -58,4 +58,4 @@ POSTGRES_ASDF_VERSION="latest"
 asdf plugin add $POSTGRES_ASDF_NAME
 sudo $APT_COMMAND update -y
 sudo $APT_COMMAND install -y $POSTGRES_APT_DEPS
-asdf install postgres $POSTGRES_ASDF_VERSION
+asdf install $POSTGRES_ASDF_NAME $POSTGRES_ASDF_VERSION
