@@ -40,7 +40,7 @@ echo '. "$HOME/.asdf/completions/asdf.bash"' >> $TARGET_BASHRC
 
 RUBY_ASDF_NAME="ruby"
 RUBY_ASDF_VERSION="latest"
-RUBY_APT_DEPS="libyaml-dev libssl-dev"
+RUBY_APT_DEPS="autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev"
 
 asdf plugin add $RUBY_ASDF_NAME
 sudo $APT_COMMAND update -y
@@ -52,7 +52,7 @@ asdf install $RUBY_ASDF_NAME $RUBY_ASDF_VERSION
 #
 
 POSTGRES_ASDF_NAME="postgres"
-POSTGRES_APT_DEPS="libreadline-dev"
+POSTGRES_APT_DEPS="linux-headers-$(uname -r) build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools"
 POSTGRES_ASDF_VERSION="latest"
 
 asdf plugin add $POSTGRES_ASDF_NAME
