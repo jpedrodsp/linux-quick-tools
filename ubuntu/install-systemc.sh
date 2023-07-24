@@ -17,7 +17,8 @@ mkdir build
 cd build
 
 echo "Building and installing..."
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$SYSTEMC_INSTALLDIR ..
+CMAKE_GENERATOR="Unix Makefiles"
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$SYSTEMC_INSTALLDIR -G "$CMAKE_GENERATOR" ..
 make -j`nproc`
 make check -j`nproc`
 sudo make install
