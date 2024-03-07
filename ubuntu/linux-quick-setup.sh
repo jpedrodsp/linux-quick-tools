@@ -82,6 +82,8 @@ code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode-remote.remote-ssh-edit
 code --install-extension ms-vscode-remote.remote-ssh
 code --install-extension ms-vscode.cpptools
+code --install-extension ms-python.black-formatter
+code --install-extension ms-python.flake8
 
 # Remove temporary files
 cd $TMP_LOCALDIR
@@ -94,7 +96,7 @@ rm -Rf $LQS_TEMPSINSTALLDIR
 
 make_title "Installing yt-dlp (via pip3) + FFMPEG..."
 # Install python3 and ffmpeg packages using apt
-sudo $APT_COMMAND install -y python3 python3-pip python3-venv ffmpeg
+sudo $APT_COMMAND install -y python3 python3-pip python3-venv ffmpeg black flake8
 # Install yt-dlp via pip
 sudo pip3 install yt-dlp
 
